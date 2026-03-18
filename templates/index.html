@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Hybrid AI Decision Support System</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f4f6f9;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.container{
+background:white;
+padding:40px;
+border-radius:12px;
+box-shadow:0 5px 20px rgba(0,0,0,0.2);
+text-align:center;
+width:400px;
+}
+
+input{
+width:250px;
+padding:10px;
+margin:10px;
+border-radius:6px;
+border:1px solid #ccc;
+}
+
+button{
+padding:12px 25px;
+background:#2a5298;
+color:white;
+border:none;
+border-radius:6px;
+cursor:pointer;
+}
+
+.result{
+margin-top:20px;
+font-size:18px;
+font-weight:bold;
+color:#2a5298;
+}
+
+ul{
+text-align:left;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>AI Placement Decision System</h2>
+
+<form method="POST">
+
+<input type="number" name="score" placeholder="Student Score" required>
+
+<br>
+
+<input type="number" name="skills" placeholder="Skill Level (1-10)" required>
+
+<br>
+
+<input type="number" name="internship" placeholder="Internship (1=yes 0=no)" required>
+
+<br>
+
+<button type="submit">Predict</button>
+
+</form>
+
+{% if result %}
+
+<div class="result">
+
+<p>{{ result }}</p>
+
+<h4>Recommendations to Improve:</h4>
+
+<ul>
+{% for a in advice %}
+<li>{{ a }}</li>
+{% endfor %}
+</ul>
+
+</div>
+
+{% endif %}
+
+</div>
+
+</body>
+
+</html>
